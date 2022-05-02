@@ -1,0 +1,28 @@
+//https://www.codingninjas.com/codestudio/problems/encode-the-message_699836?leftPanelTab=0
+public class Solution {
+	public static String encode(String s) {
+		// Write your code here.
+		// Write your code here
+		int n = s.length(); 
+		StringBuilder encodedMessage = new StringBuilder();
+		String compressString = "";
+		char currentCharacter;
+		for (int i = 0; i < n; i++) { 
+
+			// Count occurrences of current character 
+			int count = 1; 
+			currentCharacter = s.charAt(i);
+			while (i < n - 1 && 
+				s.charAt(i) == s.charAt(i + 1)) { 
+				count++; 
+				i++; 
+			}
+
+		    encodedMessage.append(currentCharacter);
+            encodedMessage.append(count);
+			
+		}
+		
+		return encodedMessage.toString();
+	}
+}
