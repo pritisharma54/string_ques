@@ -6,6 +6,43 @@
     https://www.codingninjas.com/codestudio/problems/next-greater-number_980529?leftPanelTab=2
 */
 
+import java.util.ArrayList;
+import java.util.Collections;
+
+public class Solution 
+{
+	public static ArrayList<Integer> nextPermutation(ArrayList<Integer> arr) 
+	{
+       // Write your code here.
+         if(arr==null || arr.size()<=1)  return arr;
+        
+        int i=arr.size()-2;
+        for(;i>=0;i--)
+            if(arr.get(i)<arr.get(i+1))
+                   break;
+        if(i<0){
+            Collections.sort(arr);
+            return arr;
+         }
+            
+        
+        for(int j=arr.size()-1;j>i;j--){
+            
+            if(arr.get(j)>arr.get(i)){
+                Collections.swap(arr,i,j);
+                break;
+            }
+                
+        }
+        
+       
+        Collections.sort(arr.subList(i+1, arr.size()));
+       
+        return arr;
+	}
+}
+!@@@@@@@@@@@@@@@@@@@@
+
 import java.util.Arrays;
 
 public class Solution {
